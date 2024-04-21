@@ -1,0 +1,423 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --theme-primary: rgba(0,0,0,0.5);
+  --theme-secondery-gradient: linear-gradient(to right,red,darkorange);
+  --theme-secondery-default: orangered;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  max-width: 100vw;
+  height: 100%;
+  font-size: 16px;
+}
+button a {
+  text-decoration: none;
+  color: white;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+
+}
+.unvisible {
+  visibility: hidden !important;
+
+}
+.positive {
+  background-color: var(--theme-secondery-default);
+  background-image: var(--theme-secondery-gradient);
+  color: white;
+}
+.negitive {
+  background-color: var(--theme-primary) !important;
+  color: white;
+}
+.scroller {
+  overflow: scroll !important;
+  width: 100%;
+}
+a.button-type {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn {
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+
+  box-shadow:
+  inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+  inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+.btn:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.btn:active {
+  box-shadow:
+  inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+  inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+
+button {
+  cursor: pointer;
+
+}
+
+button:disabled,.btn:disabled {
+  background-color: gray !important;
+}
+.btn:not(.noEffect,.active):hover,.btn:not(.noEffect,.active):active {
+  background-color: gray !important;
+  background-image: none !important;
+  color: white !important;
+
+}
+button.noEffect {
+  border: none;
+  background-color: transparent;
+
+}
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  gap: 5rem;
+  margin: 1rem 0 5rem 0;
+}
+
+
+
+.logoCont,.logoCont > img {
+  border-radius: 100%;
+}
+.imgCont > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.svgCont > svg {
+  width: 100%;
+  height: 100%;
+}
+/*
+.svgCont:hover .fill{
+  fill:orange
+ }
+ .svgCont:hover .stroke{
+  stroke:orange
+ }
+ */
+
+.more {
+  display: flex;
+  flex-direction: column;
+  width: 10vw;
+  gap: 1.5vw;
+  transition: .3s transform;
+  cursor: pointer;
+}
+.more > .line {
+  width: 100%;
+  height: 1vw;
+  background-color: var(--theme-secondery-default);
+  background-image: var(--theme-secondery-gradient);
+  content: " ";
+}
+.more.active {
+  transform: rotate(90deg);
+}
+
+
+.switch-small {
+  position: relative;
+  display: inline-block;
+  width: 70%;
+  height: 15%;
+}
+
+.switch-small input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-small .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.switch-small .slider:before {
+  position: absolute;
+  content: "";
+  height: 80%;
+  width: 30%;
+  left: 10%;
+  bottom: 10%;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.switch-small input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.switch-small input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.switch-small input:checked + .slider:before {
+  -webkit-transform: translateX(164%);
+  -ms-transform: translateX(164%);
+  transform: translateX(164%);
+}
+
+/* Rounded sliders */
+.switch-small .slider.round {
+  border-radius: 1rem;
+}
+
+.switch-small .slider.round:before {
+  border-radius: 50%;
+}
+
+
+.flex-cm {
+  display: flex;
+  flex-direction: column;
+
+}
+.flex-rw {
+  display: flex;
+  flex-direction: row;
+
+}
+.center {
+  justify-content: center;
+  align-items: center;
+}
+.flex-rw.top {
+  align-items: top;
+}
+.flex-rw.bottom {
+  align-items: flex-end;
+}
+.flex-rw.left {
+  justify-content: left;
+}
+.flex-rw.right {
+  justify-content: right;
+}
+
+.flex-cm.top {
+  justify-content: top;
+}
+.flex-cm.bottom {
+  justify-content: flex-end;
+}
+
+.flex-cm.left {
+  align-items: left;
+}
+.flex-cm.right {
+  align-items: right;
+}
+
+.snapParent-x {
+  scroll-snap-type: x mandatory;
+}
+.snapParent-y {
+  scroll-snap-type: y mandatory;
+}
+.snapChild {
+  scroll-snap-align: center;
+
+}
+
+
+.badge-wrapper .badge {
+  background-color: red;
+  color: white;
+  border-radius: 100%;
+  padding: 0 1vw;
+  font-weight: 700;
+  position: absolute;
+  border: min(3px, 1vw) solid white;
+  top: -10%;
+  right: -10%;
+}
+.custom-field {
+  display: flex;
+  position: relative;
+}
+.custom-field > .placeholder {
+  position: absolute;
+  top: 0px;
+  padding: 3vw;
+  transition: all .5s;
+  color: var(--color);
+  font-size: small;
+}
+.custom-field > :is(input,textarea) {
+  padding: 3vw;
+  border: min(1px,1vw) solid var(--border-color);
+  outline: none;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--color);
+}
+.custom-field > :is(input,textarea):is(:focus,:not(:placeholder-shown)) + .placeholder {
+  left: 2%;
+  top: -15%;
+  color: var(--active-color);
+  font-size: xx-small;
+  background-color: var(--active-bg-color);
+  padding: 0 1vw;
+
+}
+
+.select {
+  position: relative;
+}
+
+.select > .selected-option {
+  padding: .5vw 2vw;
+  border: 0.1vw solid var(--border-color);
+}
+.select > .selected-option:after {
+  border-style: solid;
+  border-width: 0.10em 0.10em 0 0;
+  content: '';
+  display: inline-block;
+  left: 0.15em;
+  position: relative;
+  top: 0.2em;
+  transform: rotate(135deg);
+  vertical-align: top;
+  width: 0.45em;
+  height: 0.45em;
+  color: white;
+  margin-left: 2vw;
+}
+.select > .options-wrapper {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--bg-color);
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.7);
+  top: 8vw;
+  left: 0;
+  outline: none;
+}
+.select > .options-wrapper > .option {
+  padding: 1vw 3vw;
+  background-color: var(--bg-color);
+  color: var(--color);
+  text-align: center;
+}
+.select > .options-wrapper > .option:active {
+  background-color: var(--active-bg-color);
+  color: var(--active-color);
+
+}
+.select.active > .options-wrapper {
+  display: flex;
+}
+.select.active > .selected-option:after {
+  top: 0.9.1em;
+  transform: rotate(-45deg);
+}
+.loading-bar>.bar::after {
+  content: attr(data-progress);
+  position: absolute;
+  left: 90%;
+}
+.loading-bar.load-animation > .bar {
+  animation: load-animation 2s;
+}
+
+@keyframes load-animation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--progress);
+  }
+}
+
+.chevron::after {
+  border-style: solid;
+  border-width: 0.15em 0.15em 0 0;
+  content: '';
+  display: inline-block;
+  left: 0.15em;
+  position: relative;
+  top: 0.15em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.75em;
+  height: 0.75em;
+}
+.chevron.theme::after {
+  border-color: var(  --theme-secondery-default);
+
+}
+.chevron.right:after {
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.chevron.bottom:after {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+.chevron.left:after {
+  left: 0.25em;
+  transform: rotate(-135deg);
+}
+
+
+
+
+/* status */
+.Sigma {
+  color: yellow;
+}
+
+.Alpha {
+  color: red;
+}
+.Beta {
+  color: skyblue;
+}
+.Gamma {
+  color: brown;
+}
+.Delta {
+  color: lime;
+
+}
+.Omega {
+  color: grey;
+}
+
