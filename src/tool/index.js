@@ -1,3 +1,4 @@
+export {default as DragDropContext} from './DragDropContext'
 export {default as DraggableItemsContainer} from './DraggableItemsContainer'
 export {default as Draggable} from './Draggable'
 

@@ -6,6 +6,7 @@ export default class DraggingState{
   this._visualIndex = NaN
   this.prevState = {}
   this.nextState = {}
+
   }
   get visualIndex() {
     return this._visualIndex
@@ -16,7 +17,7 @@ export default class DraggingState{
     this.dummyElement?.setAttribute("data-visual-index", val)
   }
   updateDraggingElement(element){
-     this.elm = element
+   this.elm = element
    this.startRect = element.getBoundingClientRect()
    this.updateDummyElement(this.startRect.top)
    this.visualIndex = parseInt(element.getAttribute("data-visual-index"))
@@ -31,5 +32,23 @@ export default class DraggingState{
     dummyElement.style.setProperty("top", this.startRect.top + "px")
     dummyElement.style.setProperty("cursor", "grabbing")
     this.dummyElement = dummyElement
+  }
+  updateNextPrevState(draggableElements, draggableElementsRect) {
+    this.prevState = {}
+    this.nextState = {}
+    for (const elm of draggableElements) {
+      if (this.nextElement && this.prevElement)
+        break;
+      const visualIndex = parseInt(elm.getAttribute("data-visual-index"))
+      if (visualIndex === this.visualIndex - 1) {
+        this.prevState.elm = elm
+        this.prevState.rect = draggableElementsRect[visualIndex]
+      }
+      else if (visualIndex === this.visualIndex + 1) {
+        this.nextState.elm = elm
+        this.nextState.rect = draggableElementsRect[visualIndex]
+      }
+    }
+    console.log(this.prevState, this.nextState);
   }
 }
