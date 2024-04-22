@@ -1,10 +1,10 @@
-import React from 'react';
+import React ,{forwardRef} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function _Card({className}) {
+const _Card = forwardRef(function _Card({className},ref) {
   return (
-    <Card className={className} style={{ width: '18rem' }}>
+    <Card className={className} style={{ width: '18rem' }} ref={ref}>
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
@@ -17,6 +17,6 @@ function _Card({className}) {
       </Card.Body>
     </Card>
   );
-}
+})
 
 export default _Card;
