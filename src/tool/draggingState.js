@@ -1,9 +1,11 @@
 export default class DraggingState{
   constructor(){
   this.elm = null
+  this.dummyElement = null
   this.startRect = null
   this.startYOffset = undefined
-  this.dummyElement = null
+  this.minYOffset = undefined
+  this.maxYOffset = undefined
   this._visualIndex = undefined
   this.prevState = {}
   this.nextState = {}
@@ -51,5 +53,10 @@ export default class DraggingState{
       }
     }
     console.log(this.prevState, this.nextState);
+  }
+  updateMinMaxYOffset(container) {
+    const { top, bottom } = container.getBoundingClientRect();
+    this.maxYOffset = top;
+    this.minYOffset = bottom;
   }
 }

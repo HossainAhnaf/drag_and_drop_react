@@ -9,7 +9,18 @@ export default function DragDropProvider({ children }) {
   const containerRef = useRef(null)
   const draggableElementsRef = useRef([])
   const draggableElementsRect = []
+  useEffect(()=>draggingState.updateMinMaxYOffset(containerRef.current),[containerRef])
+  useEffect(()=>{
+      window.onresize = ()=>{
+        draggingState.updateMinMaxYOffset(containerRef.current),[containerRef]
+        for (let i = 0; i < draggableElementsRect.length; i++){
+         draggableElementsRect[i] = draggableElementsRef.current[i].getBoundingClientRect()    
+        }
+    }
+  return ()=> window.onresize = null
   
+  },[])
+ 
   return (
     <DraggableItemsContainerContext.Provider value={{containerRef}}>
     <DraggableContext.Provider value={{draggingState,containerRef,draggableElementsRef,draggableElementsRect}}>
