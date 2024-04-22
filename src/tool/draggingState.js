@@ -19,7 +19,7 @@ export default class DraggingState{
     dummyElement.style.removeProperty("transition")
     dummyElement.style.setProperty("width", width)
     dummyElement.style.setProperty("position", "fixed")
-    dummyElement.style.setProperty("top", top + "px")
+    dummyElement.style.setProperty("top", this.startRect.top + "px")
     this.dummyElement = dummyElement
   }
 }

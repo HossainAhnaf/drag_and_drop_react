@@ -5,16 +5,14 @@ import Card from './Card'
 import useDragAndDrop from './tool/index'
 function App() {
   const ref = useRef()
-  const {initDragDrop} = useDragAndDrop()
+  const {dragAndDropContainerRef} = useDragAndDrop()
  
   useEffect(() => {
-    if (ref.current){
-      initDragDrop(ref.current)
-    }
+
       
   },[])
   return (
-    <div className='app' ref={ref}>
+    <div className='app' ref={dragAndDropContainerRef}>
       <Card className="draggable"/>
       <Card className="draggable"/>
       <Card className="draggable"/>
