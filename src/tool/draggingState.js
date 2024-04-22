@@ -2,8 +2,9 @@ export default class DraggingState{
   constructor(){
   this.elm = null
   this.startRect = null
+  this.startYOffset = undefined
   this.dummyElement = null
-  this._visualIndex = NaN
+  this._visualIndex = undefined
   this.prevState = {}
   this.nextState = {}
 
