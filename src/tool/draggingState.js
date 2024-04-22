@@ -52,7 +52,6 @@ export default class DraggingState{
         this.nextState.rect = draggableElementsRect[visualIndex]
       }
     }
-    console.log(this.prevState, this.nextState);
   }
   updateMinMaxYOffset(container) {
     const { top, bottom } = container.getBoundingClientRect();

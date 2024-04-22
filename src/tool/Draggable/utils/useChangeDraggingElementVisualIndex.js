@@ -3,7 +3,6 @@ import DraggableContext from '../../DragDropProvider/contexts/DraggableContext';
 export default function useChangeDraggingElementVisualIndex() {
   const { draggingState,draggableElementsRef,draggableElementsRect } = useContext(DraggableContext)
   return ({ elm: dragOverElement, rect: dragOverElmRect }) => {
-
     const oldTransformValue = /\d+/.exec(dragOverElement.style.getPropertyValue("transform"))
     const oldTranslateY = (oldTransformValue ? parseInt(oldTransformValue[0]) : 0)
     const dragOverElementVisualIndex = parseInt(dragOverElement.getAttribute("data-visual-index"))

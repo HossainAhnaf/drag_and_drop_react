@@ -2,7 +2,7 @@ import React, { useContext} from 'react'
 import DraggableContext from '../../DragDropProvider/contexts/DraggableContext';
 //handlers
 import useDragMoveHandler from './useDragMoveHandler';
-
+import useDragEndHandler from './useDragEndHandler';
 export default function useDragStartHandler() {
   const {
     draggingState,
@@ -11,7 +11,7 @@ export default function useDragStartHandler() {
     draggableElementsRect
   } = useContext(DraggableContext)
   const dragMoveHandler = useDragMoveHandler()
-
+  const dragEndHandler = useDragEndHandler()
  return ({currentTarget,clientY}) =>{
   draggingState.updateDraggingElement(currentTarget)
   draggingState.updateNextPrevState(draggableElementsRef.current,draggableElementsRect)
@@ -20,8 +20,7 @@ export default function useDragStartHandler() {
   currentTarget.style.setProperty("opacity", "0")    
   document.documentElement.style.setProperty("cursor", "grabbing")
    draggableElementsRef.current.forEach(draggableElement => draggableElement.style.setProperty("user-select", "none"))
-  
   document.onpointermove = dragMoveHandler
-  // document.onpointerup = this.#dragEndHandler.bind(this)
+  document.onpointerup = dragEndHandler
 }
 }
